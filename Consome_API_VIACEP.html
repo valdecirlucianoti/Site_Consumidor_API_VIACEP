@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Consome API VIACEP</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        @charset "UTF-8";
+        body {
+            background-color: aquamarine;
+        }
+        hgroup {
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        section {
+            display: block;
+            background-color: white;
+            border-radius: 10px;
+            width: 1000px;
+            margin-top: 50px;
+            margin: auto;
+        }
+        p {
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function consomeApiViaCep() {
+            window
+                .fetch('https://viacep.com.br/ws/' + document.meuForm.cep.value + '/json/')
+                .then(function (returnDoFetch) {
+                    returnDoFetch.json().then(function (retornoTratado) {
+                        var { cep, logradouro, complemento, bairro,
+                            localidade, uf, ibge, gia, ddd, siafi } = retornoTratado;
+
+                        document.meuForm.logradouro.value = logradouro;
+                        document.meuForm.complemento.value = complemento;
+                        document.meuForm.bairro.value = bairro;
+                        document.meuForm.localidade.value = localidade;
+                        document.meuForm.uf.value = uf;
+                        document.meuForm.ibge.value = ibge;
+                        document.meuForm.gia.value = gia;
+                        document.meuForm.ddd.value = ddd;
+                        document.meuForm.siafi.value = siafi;
+                    })
+                })
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <hgroup>
+            <h3>Site consumidor da API: VIACEP</h3>
+            <div class="row">
+                <div class="chip">
+                    HTML5
+                </div>
+                <div class="chip">
+                    CSS3
+                </div>
+                <div class="chip">
+                    JavaScript
+                </div>
+                <div class="chip">
+                    Materialize
+                </div>
+            </div>
+        </hgroup>
+    </header>
+    <section>
+        <article>
+            <div class="row container">
+                <form action="" name="meuForm" class="col s12">
+                    <div class="input-field col s12">
+                        <label for="cep">CEP</label>
+                        <input type="number" name="cep" onblur="consomeApiViaCep()" autocomplete="">
+                    </div>
+
+                    <div class="active input-field col s6">
+                        <label for="logradouro">Logradouro</label>
+                        <input placeholder=" " type="text" name="logradouro" readonly>
+                    </div>
+                    <div class="input-field col s6">
+                        <label for="complemento">Complemento</label>
+                        <input placeholder=" - " type="text" name="complemento">
+                    </div>
+                    <div class="input-field col s6">
+                        <label for="bairro">Bairro</label>
+                        <input placeholder=" " type="text" name="bairro">
+                    </div>
+                    <div class="input-field col s6">
+                        <label for="localidade">Localidade</label>
+                        <input placeholder=" " type="text" name="localidade">
+                    </div>
+                    <div class="input-field col s6">
+                        <label for="uf">UF</label>
+                        <input placeholder=" " type="text" name="uf">
+                    </div>
+                    <div class="input-field col s6">
+                        <label for="ibge">IBGE</label>
+                        <input placeholder=" " type="number" name="ibge">
+                    </div>
+                    <div class="input-field col s6">
+                        <label for="gia">GIA</label>
+                        <input placeholder=" " type="number" name="gia">
+                    </div>
+                    <div class="input-field col s6">
+                        <label for="ddd">DDD</label>
+                        <input placeholder=" " type="number" name="ddd">
+                    </div>
+                    <div class="input-field col s12">
+                        <label for="siafi">SIAFI</label>
+                        <input placeholder=" " type="text" name="siafi">
+                    </div>
+                    <div class="center input-field col s12">
+                        <button class="waves-effect waves-light btn" type="reset">Apagar</button>
+                    </div>
+                </form>
+            </div>
+        </article>
+    </section>
+    <footer>
+        <p>&copy; Valdecir Luciano da Silva</p>
+    </footer>
+</body>
+
+</html>
