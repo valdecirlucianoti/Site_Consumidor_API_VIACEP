@@ -1,79 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <link rel="icon" href="../_Recursos/FavIcon Valdecir Luciano.png" type="image/x-icon">
+<html lang="pt-BR">
 
-        <!-- Não disponível-->
-        <link rel="alternate" type="application/json" title="versão em JSON" href="link.json">
-        <link rel="author" href="https://www.linkedin.com/in/valdecir-luciano-da-silva-4b137010a/">
-        <link rel="preconnect" href="https://viacep.com.br">
-    
-        
-        <meta charset="utf-8">
-        <meta name="application-name" content="Projeto Google Glass">
-        <meta name="author" content="Valdecir Luciano">
-        <meta name="disponível" content="Este projeto tem como objetivo demostrar habilidades no desenvolvimento de web sites com a linguagem de hypertexto HTML5.">
-        <meta name="generator" content="Visual Studios Code">
-        <meta name="keywords" content="HTML5, CSS3, JavaScript, Materialize, JSON">
-    
-        <script src="_javascript/funcoes.js"></script>
-        <title>Tudo sobre o Google Glass</title>
-    </head>
 <head>
+    <title>Consome API VIACEP</title>
+
+    <link rel="icon" href="../_Recursos/FavIcon Valdecir Luciano.png" type="image/x-icon">
+    <link rel="author" href="https://www.linkedin.com/in/valdecir-luciano-da-silva-4b137010a/">
+    <link rel="preconnect" href="https://viacep.com.br">
+    <link rel="stylesheet" href="../_CSS3/style.css">
+
+    <!-- CDN do Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Consome API VIACEP</title>
+    <meta charset="utf-8">
+    <meta name="application-name" content="Projeto Google Glass">
+    <meta name="author" content="Valdecir Luciano">
+    <meta name="disponível" content="Este projeto tem como objetivo demostrar habilidades no desenvolvimento de web sites com a linguagem de hypertexto HTML5.">
+    <meta name="generator" content="Visual Studios Code">
+    <meta name="keywords" content="HTML5, CSS3, JavaScript, Materialize, JSON">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <style>
-        @charset "UTF-8";
-        body {
-            background-color: aquamarine;
-        }
-        hgroup {
-            background-color: white;
-            border-radius: 10px;
-            text-align: center;
-        }
-        section {
-            display: block;
-            background-color: white;
-            border-radius: 10px;
-            width: 90%;
-            margin-top: 50px;
-            margin: auto;
-        }
-        p {
-            background-color: white;
-            border-radius: 10px;
-            text-align: center;
-        }
-    </style>
-    <script>
-        function consomeApiViaCep() {
-            window
-                .fetch('https://viacep.com.br/ws/' + document.meuForm.cep.value + '/json/')
-                .then(function (returnDoFetch) {
-                    returnDoFetch.json().then(function (retornoTratado) {
-                        var { cep, logradouro, complemento, bairro,
-                            localidade, uf, ibge, gia, ddd, siafi } = retornoTratado;
 
-                        document.meuForm.logradouro.value = logradouro;
-                        document.meuForm.complemento.value = complemento;
-                        document.meuForm.bairro.value = bairro;
-                        document.meuForm.localidade.value = localidade;
-                        document.meuForm.uf.value = uf;
-                        document.meuForm.ibge.value = ibge;
-                        document.meuForm.gia.value = gia;
-                        document.meuForm.ddd.value = ddd;
-                        document.meuForm.siafi.value = siafi;
-                    })
-                })
-        }
-    </script>
+    <script src="../_JavaScript/script.js"></script>
 </head>
+
 <body>
     <header>
         <hgroup>
@@ -97,7 +47,7 @@
             </div>
         </hgroup>
     </header>
-    <section>
+    <main>
         <article>
             <div class="row container">
                 <form action="" name="meuForm" class="col s12">
@@ -148,7 +98,7 @@
                 </form>
             </div>
         </article>
-    </section>
+    </main>
     <footer>
         <p>&copy; Valdecir Luciano da Silva</p>
     </footer>
